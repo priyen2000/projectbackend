@@ -32,16 +32,16 @@ router.get('/', function(req, res, next) {
       }
     });
   });
-// router.put('/',upload.single('image'),function(req, res, next) {
-//   product.updateProduct(req.body,req.file.filename,function(err, rows) {
-//     if (err) {
+router.put('/:pro_id',function(req, res, next) {
+  product.updateProductWithoutimg(req.params.pro_id,req.body,function(err, rows) {
+    if (err) {
       
-//       res.json(err);
-//     } else {
-//       res.json(rows);
-//     }
-//   });
-// });
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+});
   router.delete('/:id', function(req, res, next) {
     product.deleteProduct(req.params.id, function(err, rows) {
       if (err) {

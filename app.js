@@ -14,6 +14,15 @@ var deleteallproduct=require('./routes/multideleteproduct_route');
 var productbyid=require('./routes/productbyid_route');
 var updateproduct=require('./routes/Update_product_route');
 var productbycatname=require('./routes/productBycatname_route');
+var userlogin=require('./routes/user_route');
+var forgetpass=require('./routes/forgetpass_route');
+var email=require('./routes/email_routes');
+var order=require('./routes/order_route');
+var orderbyuname=require('./routes/orderbyusername_route');
+var toporder=require('./routes/toporder_route');
+var insertorder=require('./routes/insert_order_route');
+var addrepair=require('./routes/addrepair_route');
+var repair=require('./routes/repair_route');
 var app = express();
 
 // view engine setup
@@ -36,6 +45,15 @@ app.use('/deleteallproduct',deleteallproduct);
 app.use('/productbyid',productbyid);
 app.use('/updateproduct',updateproduct);
 app.use('/productbycatname',productbycatname);
+app.use('/userlogin',userlogin);
+app.use('/forgetpass',forgetpass);
+app.use('/email',email);
+app.use('/order',order);
+app.use('/orderbyusername',orderbyuname);
+app.use('/toporder',toporder);
+app.use('/insertorder',insertorder);
+app.use('/repair',repair);
+app.use('/addrepair',addrepair);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

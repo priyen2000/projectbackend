@@ -15,6 +15,9 @@ var product={
     updateProduct:function(item,filename,callback){
         return db.query("update product_tbl set pro_name=?,pro_img=?,pro_color=?,pro_price=?,pro_soh=?,pro_mfg=?,pro_desc=?,fk_cat_id=? where pro_id=?",[item.pro_name,filename,item.pro_color,item.pro_price,item.pro_soh,item.pro_mfg,item.pro_desc,item.fk_cat_id,item.pro_id],callback);
     },
+    updateProductWithoutimg:function(pro_id,item,callback){
+        return db.query("update product_tbl set pro_name=?,pro_color=?,pro_price=?,pro_soh=?,pro_mfg=?,pro_desc=?,fk_cat_id=? where pro_id=?",[item.pro_name,item.pro_color,item.pro_price,item.pro_soh,item.pro_mfg,item.pro_desc,item.fk_cat_id,pro_id],callback);
+    },
     deleteAllProduct:function(item,callback){
         console.log(item);
         var delarr=[];
