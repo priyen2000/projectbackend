@@ -27,13 +27,12 @@ var order={
    
      addOrder:function(item,callback){
         var d=new Date(Date.now());
-        return db.query("insert into order_tbl values(?,?,?,?,?,?,?)",[item.order_id,item.fk_pro_id,item.fk_user_id,item.order_amount,d,item.status,item.qty],callback);
+        return db.query("insert into order_tbl(fk_pro_id,fk_user_id,order_amount,order_date,status,qty) values(?,?,?,?,?,?)",[item.fk_pro_id,item.fk_user_id,item.order_amount,d,item.status,item.qty],callback);
     },
     // getMaxOrder:function(callback){
     //     return db.query("select o.*,MAX(order_amount) from order_tbl o",callback);
     // }
     getTodaysOrder:function(callback){
-        var d=new Date(Date.now());
          return db.query("select * from order_tbl where order_date=d",callback);
     },
     getTopOrder:function(callback){

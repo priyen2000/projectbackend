@@ -18,11 +18,14 @@ var userlogin=require('./routes/user_route');
 var forgetpass=require('./routes/forgetpass_route');
 var email=require('./routes/email_routes');
 var order=require('./routes/order_route');
+var orderdetail=require('./routes/order_detail_route');
 var orderbyuname=require('./routes/orderbyusername_route');
 var toporder=require('./routes/toporder_route');
 var insertorder=require('./routes/insert_order_route');
 var addrepair=require('./routes/addrepair_route');
 var repair=require('./routes/repair_route');
+var bill=require('./routes/bill_route');
+var billdetails=require('./routes/billdetails_route');
 var app = express();
 
 // view engine setup
@@ -49,11 +52,14 @@ app.use('/userlogin',userlogin);
 app.use('/forgetpass',forgetpass);
 app.use('/email',email);
 app.use('/order',order);
+app.use('/orderdetail',orderdetail);
 app.use('/orderbyusername',orderbyuname);
 app.use('/toporder',toporder);
 app.use('/insertorder',insertorder);
 app.use('/repair',repair);
 app.use('/addrepair',addrepair);
+app.use('/bill',bill);
+app.use('/billdetails',billdetails);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
