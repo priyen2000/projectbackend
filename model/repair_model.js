@@ -1,6 +1,6 @@
 var db=require('../dbconnection');
 var repair={
-    getAllRepairOrder:function(callback){
+    getAllRepair:function(callback){
         return db.query("select * from  repair_tbl",callback);
     },
     addRepairing:function(item,callback){
@@ -20,6 +20,12 @@ var repair={
     deleteRepairOrder:function(id,callback){
    
         return db.query("delete from repair_tbl where repair_id in (?)",[id],callback);
+    },
+    getRepairById:function(repair_id,callback){
+        return db.query("select * from repair_tbl  where repair_id=?",[repair_id],callback);
+    },
+    updateRepairAmt:function(item,callback){  
+        return db.query("update repair_tbl set repair_amt=? where repair_id=?",[item.amt,item.id],callback);
     }
 }
 module.exports=repair;
